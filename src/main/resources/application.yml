@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ZhangLujie4/config-repo.git
+          basedir: /Users/zhanglujie/Documents/spring cloud/config/basedir
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+zlj:
+  webhook: http://${eureka.instance.hostname}:${server.port}
+server:
+  port: 8080
+
